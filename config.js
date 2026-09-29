@@ -1,7 +1,7 @@
 // Cấu hình chung. Nội dung theo ngành nằm trong templates.js.
 window.CONFIG = {
-  defaultTheme: "indigo",     // id giao diện mặc định (xem THEMES trong templates.js)
-  defaultIndustry: "general", // id ngành mặc định (xem INDUSTRIES trong templates.js)
+  defaultTheme: "rose",     // id giao diện mặc định (xem THEMES trong templates.js)
+  defaultIndustry: "nail", // id ngành mặc định (xem INDUSTRIES trong templates.js)
   showTemplatePicker: true,   // false = ẩn nút chọn mẫu khi giao bản chính thức cho khách
   openHour: 9,
   closeHour: 18,

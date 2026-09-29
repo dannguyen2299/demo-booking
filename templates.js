@@ -50,3 +50,53 @@ window.INDUSTRIES = [
     ]
   }
 ];
+
+// Người phụ trách theo ngành (dùng cho kiểu "Chọn chuyên viên"). Với nhà hàng, đây là khu vực chỗ ngồi.
+const STAFF_BY_INDUSTRY = {
+  general: { staffLabel: "Chuyên viên", staff: [
+    { id: "p1", name: "Minh Anh", role: "Chuyên viên cấp cao · 8 năm kinh nghiệm", emoji: "👩‍💼", rating: 4.9 },
+    { id: "p2", name: "Quốc Bảo", role: "Chuyên viên tư vấn", emoji: "👨‍💼", rating: 4.8 },
+    { id: "p3", name: "Thu Hà", role: "Chuyên viên · thân thiện, tận tâm", emoji: "🧑‍💼", rating: 4.7 }
+  ] },
+  spa: { staffLabel: "Kỹ thuật viên", staff: [
+    { id: "p1", name: "Ngọc Lan", role: "Chuyên massage & trị liệu", emoji: "🧖‍♀️", rating: 5.0 },
+    { id: "p2", name: "Thảo My", role: "Chuyên chăm sóc da", emoji: "💆‍♀️", rating: 4.9 },
+    { id: "p3", name: "Hoàng Nam", role: "Stylist tóc & nail", emoji: "💇‍♂️", rating: 4.8 }
+  ] },
+  clinic: { staffLabel: "Bác sĩ", staff: [
+    { id: "p1", name: "BS. Trần Minh", role: "Nha khoa tổng quát · 12 năm", emoji: "👨‍⚕️", rating: 4.9 },
+    { id: "p2", name: "BS. Lê Thu Trang", role: "Chỉnh nha – niềng răng", emoji: "👩‍⚕️", rating: 4.9 },
+    { id: "p3", name: "BS. Phạm Đức", role: "Phục hình & cấy ghép", emoji: "🧑‍⚕️", rating: 4.8 }
+  ] },
+  restaurant: { staffLabel: "Khu vực", staff: [
+    { id: "p1", name: "Trong nhà", role: "Máy lạnh, yên tĩnh, phù hợp gia đình", emoji: "🏠" },
+    { id: "p2", name: "Sân vườn", role: "Thoáng mát, có cây xanh", emoji: "🌿" },
+    { id: "p3", name: "Rooftop tầng 5", role: "View thành phố, không gian lãng mạn", emoji: "🌇" }
+  ] }
+};
+INDUSTRIES.forEach(i => Object.assign(i, STAFF_BY_INDUSTRY[i.id]));
+
+// ---- Ngành NAIL (kèm giao diện "rose" riêng) ----
+THEMES.splice(1, 0, { id: "rose", name: "Nail hồng", desc: "Hồng pastel bóng bẩy, dành cho nail & beauty", sw: ["#ec4899", "#fff4f8", "#ffffff"] });
+INDUSTRIES.splice(1, 0, {
+  id: "nail", name: "Nail", icon: "💅", theme: "rose",
+  brand: { name: "Pinky Nail Studio", tagline: "Đặt lịch làm móng — xinh chỉ với vài cú chạm", emoji: "💅" },
+  services: [
+    { id: "s1", name: "Sơn gel cơ bản", desc: "Làm sạch, dũa form, sơn gel bền màu", minutes: 45, price: 150000, icon: "💅" },
+    { id: "s2", name: "Úp / đắp móng gel", desc: "Nối móng, tạo form dáng mong muốn", minutes: 90, price: 350000, icon: "✨" },
+    { id: "s3", name: "Nail art thiết kế", desc: "Vẽ, đính đá, mắt mèo, tráng gương", minutes: 120, price: 450000, icon: "🎨" },
+    { id: "s4", name: "Spa tay & chân", desc: "Ngâm, tẩy da chết, dưỡng ẩm, massage", minutes: 75, price: 280000, icon: "🌸" },
+    { id: "s5", name: "Tháo móng & chăm sóc", desc: "Tháo gel an toàn, phục hồi móng yếu", minutes: 30, price: 80000, icon: "🧴" }
+  ],
+  staffLabel: "Thợ nail",
+  staff: [
+    { id: "p1", name: "Bé Ly", role: "Nail artist · chuyên vẽ & đính đá", emoji: "👩‍🎨", rating: 5.0 },
+    { id: "p2", name: "Tú Anh", role: "Chuyên úp móng, form dáng đẹp", emoji: "💁‍♀️", rating: 4.9 },
+    { id: "p3", name: "Mai Chi", role: "Chuyên spa tay chân, nhẹ nhàng", emoji: "🧖‍♀️", rating: 4.8 }
+  ],
+  palette: [
+    { n: "Hồng sữa", c: "#f9c5d1" }, { n: "Đỏ cherry", c: "#c1121f" }, { n: "Nude kem", c: "#e8c4a8" },
+    { n: "Tím lavender", c: "#c4b5fd" }, { n: "Xanh mint", c: "#a7f3d0" }, { n: "Mắt mèo", c: "#5b3a7a" },
+    { n: "Trắng sữa", c: "#fdf6ee" }, { n: "Chrome bạc", c: "#cfd3da" }
+  ]
+});
