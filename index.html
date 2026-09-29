@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đặt lịch hẹn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <button class="brand" id="brandBtn" aria-label="Về trang chủ"><span class="logo" id="brandEmoji"></span><span id="brandName"></span></button>
+      <nav class="tabs" role="tablist">
+        <button class="tab is-active" data-view="home" role="tab">Đặt lịch</button>
+        <button class="tab" data-view="manage" role="tab">Lịch của tôi <span class="count" id="tabCount" hidden></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- ============ TRANG CHỦ ============ -->
+    <section id="view-home" class="view">
+      <div class="hero home-hero">
+        <span class="eyebrow">Đặt lịch trực tuyến 24/7</span>
+        <h1 id="homeTitle"></h1>
+        <p id="homeSub"></p>
+        <div class="hero-cta">
+          <button class="btn primary" id="ctaStart">Đặt lịch ngay</button>
+          <button class="btn ghost" id="ctaManage">Đổi / hủy lịch</button>
+        </div>
+        <ul class="trust">
+          <li>✓ Xác nhận ngay lập tức</li><li>✓ Đổi hoặc hủy chỉ 2 lần bấm</li><li>✓ Không cần đăng ký tài khoản</li>
+        </ul>
+      </div>
+      <h2 class="sec-title" id="flowTitle">Chọn cách đặt lịch bạn thích</h2>
+      <div class="flow-cards" id="flowCards"></div>
+      <h2 class="sec-title">Dịch vụ nổi bật</h2>
+      <div class="svc-strip" id="svcStrip"></div>
+    </section>
+
+    <!-- ============ KHUNG CHỨA CÁC LUỒNG ĐẶT LỊCH ============ -->
+    <section id="view-book" class="view" hidden>
+      <div class="flowbar"><button class="link" id="flowBack">← Trang chủ</button><span class="muted" id="flowName"></span></div>
+      <div id="flowBody"></div>
+    </section>
+
+    <!-- ============ LỊCH CỦA TÔI ============ -->
+    <section id="view-manage" class="view" hidden>
+      <div class="hero">
+        <h1>Lịch của tôi</h1>
+        <p>Nhập số điện thoại hoặc mã đặt lịch để xem, đổi ngày hoặc hủy.</p>
+      </div>
+      <form class="search" id="searchForm">
+        <input id="searchInput" placeholder="Số điện thoại hoặc mã (VD: BK-7K3Q)" aria-label="Tìm lịch">
+        <button class="btn primary" type="submit">Tra cứu</button>
+      </form>
+      <p class="hint" id="demoHint"></p>
+      <div id="results"></div>
+    </section>
+  </main>
+
+  <footer class="foot">Bản demo giao diện · dữ liệu chỉ lưu trên trình duyệt này ·
+    <button class="link" id="resetDemo">Đặt lại dữ liệu mẫu</button></footer>
+
+  <!-- Hộp xác nhận -->
+  <dialog id="confirm">
+    <form method="dialog">
+      <h3 id="confirmTitle"></h3>
+      <p id="confirmText" class="muted"></p>
+      <div class="actions end">
+        <button class="btn ghost" value="no">Giữ lịch</button>
+        <button class="btn danger" value="yes">Hủy lịch</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- Bảng chọn mẫu -->
+  <button class="tpl-fab" id="tplFab" hidden>🎨 Đổi mẫu</button>
+  <dialog id="tplDialog" class="tpl-dialog">
+    <div class="tpl-head"><h3>Chọn mẫu giao diện</h3><button class="icon-btn" id="tplClose" aria-label="Đóng">✕</button></div>
+    <div class="tpl-label">Phong cách</div>
+    <div class="tpl-grid" id="themeGrid"></div>
+    <div class="tpl-label">Ngành kinh doanh</div>
+    <div class="tpl-grid" id="industryGrid"></div>
+    <p class="muted small" style="margin:14px 0 0">Mẹo: copy link trên thanh địa chỉ để gửi đúng mẫu này cho khách.</p>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js"></script>
+  <script src="templates.js"></script>
+  <script src="app.js"></script>
+  <script src="flows.js"></script>
+  <script>BK.boot();</script>
+</body>
+</html>
